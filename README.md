@@ -28,3 +28,6 @@ The benchmarks compare the time taken to calculate the Fibonacci sequence using 
 
 ![img.png](img.png)
 
+Results for sequential vs concurrent on single core
+
+![img_2.png](img_2.png)
