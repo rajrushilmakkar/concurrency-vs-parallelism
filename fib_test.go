@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"runtime"
 	"testing"
 	"time"
 )
@@ -14,6 +15,7 @@ func fib(n int) int {
 }
 
 func BenchmarkSequential(b *testing.B) {
+
 	for i := 0; i < b.N; i++ {
 		start := time.Now()
 		fib(40)
@@ -43,6 +45,7 @@ func BenchmarkConcurrent(b *testing.B) {
 }
 
 func BenchmarkParallel(b *testing.B) {
+	runtime.GOMAXPROCS(12)
 	for i := 0; i < b.N; i++ {
 		start := time.Now()
 		done := make(chan bool, 2)
