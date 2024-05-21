@@ -45,7 +45,7 @@ func BenchmarkConcurrent(b *testing.B) {
 }
 
 func BenchmarkParallel(b *testing.B) {
-	runtime.GOMAXPROCS(12)
+	runtime.GOMAXPROCS(12) //max CPU cores available on my computer
 	for i := 0; i < b.N; i++ {
 		start := time.Now()
 		done := make(chan bool, 2)
